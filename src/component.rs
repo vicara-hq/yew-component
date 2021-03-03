@@ -151,11 +151,12 @@ pub fn parse(input: TokenStream) -> TokenStream {
 		create_fn,
 	} = parse_macro_input!(input as YewComponent);
 
+	let message_name = format_ident!("{}Message", name.to_string());
 	let props_name = format_ident!("{}Props", name.to_string());
 	let state_name = format_ident!("{}State", name.to_string());
 
 	let expanded = quote! {
-		#visibility enum Message {
+		#visibility enum #message_name {
 			#message_variants
 		}
 
@@ -181,7 +182,7 @@ pub fn parse(input: TokenStream) -> TokenStream {
 
 		impl yew::Component for #name {
 			type Properties = #props_name;
-			type Message = Message;
+			type Message = #message_name;
 
 			fn create(props: Self::Properties, mut link: yew::ComponentLink<Self>) -> Self {
 				let state = #state_name ::create(&mut link);

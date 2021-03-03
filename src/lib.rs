@@ -1,8 +1,8 @@
 use proc_macro::TokenStream;
 
-mod yew_component;
+mod component;
 
 #[proc_macro]
-pub fn yew_component(input: TokenStream) -> TokenStream {
-    yew_component::parse(input)
+pub fn component(input: TokenStream) -> TokenStream {
+    component::parse(input)
 }
