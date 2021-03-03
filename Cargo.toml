@@ -3,6 +3,8 @@ name = "yew-component"
 version = "0.1.0"
 authors = ["Rakshith Ravi <rakshith.ravi@gmx.com>"]
 edition = "2018"
+description = "A simple macro to generate yew components from a single struct declaration"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
